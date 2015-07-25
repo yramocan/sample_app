@@ -1,4 +1,4 @@
-# Ruby on Rails Tutorial: sample application
+# Ruby on Rails Tutorial: Twitta
 
-This is a Twitter-esque application for the
+This is a Twitter-esque application based on the
 [*Ruby on Rails Framework.*](http://rubyonrails.org/)
