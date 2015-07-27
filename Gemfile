@@ -16,6 +16,9 @@ gem 'coffee-rails', '~> 4.1.0'
 # Use Bootstrap for layouts
 gem 'bootstrap-sass', '~> 3.3.5.1'
 
+# Use FontAwesome library for icons
+gem 'font-awesome-sass', '4.3.0'
+
 # Use Autoprefixer to automatically prefix CSS rules
 gem 'autoprefixer-rails', '~> 5.2.1.1'
 
