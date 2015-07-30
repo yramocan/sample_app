@@ -6,38 +6,11 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
-  <!--[if lt IE 9]>
-      <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/r29/html5.min.js">
-      </script>
-  <![endif]-->
+  <%= render 'layouts/shim' %>
 </head>
 <body>
   
-  <nav class="navbar navbar-inverse navbar-fixed-top">
-    <div class='container'>
-      
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-nav-collapse">
-          <span class="sr-only">Toggle navigation</span>
-          <i class="fa fa-bars" style="color:white;"></i>
-        </button>
-        
-        <%= link_to root_path, class: 'navbar-brand' do %>
-          
-          <%= image_tag('twitta.png', id: 'logo') %>
-        <% end %>
-      </div><!-- end navbar header -->
-    
-      <div class="collapse navbar-collapse" id="main-nav-collapse">
-        <ul class="nav navbar-nav navbar-right">
-          <li class="text-center"><%= link_to "Home", "#" %></li>
-          <li class="text-center"><%= link_to "Help", "#" %></li>
-          <li class="text-center"><%= link_to "Log in", "#" %></li>
-        </ul>
-      </div><!-- end .navbar-collapse -->
-      
-    </div><!-- end container -->
-  </nav><!-- end nav -->
+  <%= render 'layouts/navbar' %>
 
   <div class="container" id="main-container">
     <%= yield %>
