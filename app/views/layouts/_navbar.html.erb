@@ -15,9 +15,30 @@
   
     <div class="collapse navbar-collapse" id="main-nav-collapse">
       <ul class="nav navbar-nav navbar-right">
-        <li class="text-center"><%= link_to "Home", root_path %></li>
-        <li class="text-center"><%= link_to "Help", help_path %></li>
-        <li class="text-center"><%= link_to "Log in", "#" %></li>
+        <% if @user %>
+          <li class="text-center"><%= link_to "Home", root_path %></li>
+          <li class="text-center"><%= link_to "Help", help_path %></li>
+        <% else %>
+          <div class="row nav navbar-nav" style="margin-top:0.7em;">
+            <%= form_for(@user) do |f| %>
+              <div class="col-md-5">
+                <li class="">
+                  <%= f.email_field :email, class: "form-control input-sm", placeholder: "Email", tabindex: "1" %>
+                </li>
+              </div>
+
+              <div class="col-md-5">
+                <li class="">
+                  <%= f.password_field :password, class: "form-control input-sm", placeholder: "Password", tabindex: "2" %>
+                </li>
+              </div>
+
+              <div class="col-md-2">
+                <li><%= f.submit "Sign in", class: "btn btn-success btn-sm" %></li>
+              </div>
+            <% end %>
+          </div>
+        <% end %>
       </ul>
     </div><!-- end .navbar-collapse -->
     

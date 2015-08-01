@@ -1,4 +1,4 @@
-<% provide(:title, "Home") %>
+<% provide(:title, "Sign Up") %>
 <div class="row">
 	<div class="col-md-6">
 		<h1>Connect with friends and the world around you on Twitta.</h1>
@@ -22,25 +22,26 @@
 		    <div class="">
 			    <%= form_for(@user) do |f| %>
 			    	<h1>Sign Up <small>It's free and always will be.</small></h1>
+			    	<%= render 'shared/error_messages' %>
 
 			    	<div class="form-group">
 			    		<%= f.label :name %>
-			    		<%= f.text_field :name, class: "form-control input-lg", placeholder: "Full Name", tabindex: "1" %>
+			    		<%= f.text_field :name, class: "form-control input-lg", placeholder: "Full Name", tabindex: "3" %>
 			    	</div>
 			    	
 			    	<div class="form-group">
 			    		<%= f.label :email %>
-			    		<%= f.email_field :email, class: "form-control input-lg", placeholder: "Email", tabindex: "2" %>
+			    		<%= f.email_field :email, class: "form-control input-lg", placeholder: "Email", tabindex: "4" %>
 			    	</div>
 
 			    	<div class="form-group">
 			    		<%= f.label :password %>
-			    		<%= f.email_field :password, class: "form-control input-lg", placeholder: "Password", tabindex: "3" %>
+			    		<%= f.password_field :password, class: "form-control input-lg", placeholder: "Password", tabindex: "5" %>
 			    	</div>
 
 			    	<div class="form-group">
 			    		<%= f.label :password_confirmation %>
-			    		<%= f.email_field :password_confirmation, class: "form-control input-lg", placeholder: "Confirm Password", tabindex: "4" %>
+			    		<%= f.password_field :password_confirmation, class: "form-control input-lg", placeholder: "Confirm Password", tabindex: "6" %>
 			    	</div>
 			    	
 			    	<div class="row">
