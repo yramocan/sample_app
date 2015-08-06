@@ -30,7 +30,7 @@
             </ul>
           </li>
         <% else %>
-          <li><%= link_to "Sign in", login_path %></li>
+          <li><%= link_to "Sign in", "#", {'data-toggle' => 'modal', 'data-target' => '#login_modal'} %></li>
         <% end %>
       </ul>
     </div><!-- end .navbar-collapse -->
