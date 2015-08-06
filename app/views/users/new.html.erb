@@ -46,14 +46,21 @@
 			    	
 			    	<div class="row">
 			    		<div class="col-xs-10 col-sm-12 col-md-12">
-			    			By clicking <strong class="label label-primary">Create my account</strong>, you agree to the <%= link_to "Terms and Conditions", "#" %> set out by this site, including our Cookie Use. 
-			    		</div> <!-- data-toggle: "modal", data-target: "#t_and_c_m" -->
+			    			By clicking 
+			    			<strong class="label label-primary">
+			    				Create my account
+			    			</strong>, you agree to the <%= link_to "Terms and Conditions", "#", {'data-toggle' => 'modal', 'data-target' => '#t_and_c_m'} %> set out by this site, including our Cookie Use. 
+			    		</div>
 			    	</div>
 			    	
 			    	<hr class="colorgraph">
 
 			    	<div class="form-group">
 			    		<%= f.submit "Create my account", class: "btn btn-primary btn-block btn-lg" %>
+			    	</div>
+
+			    	<div class="form-group">
+			    		<p>Already a member? <%= link_to "Sign in!", '#', {'data-toggle' => 'modal', 'data-target' => '#login_modal'} %></p>
 			    	</div>
 			    <% end %>
 			</div>
@@ -65,51 +72,38 @@
 <div class="modal fade" id="login_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 	<div class="modal-dialog modal-md">
 		<div class="modal-content">
+
 			<div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
 				<h4 class="modal-title text-center" id="login-header">Sign in</h4>
 			</div>
+
 			<div class="modal-body">
 				<div class="row">
-					<div class="col-md-8 col-md-offset-2">
-						<div class="panel panel-login">
-							<div class="panel-body">
-								<div class="row">
-									<div class="col-lg-12">
-										<form id="login-form" action="http://phpoll.com/login/process" method="post" role="form" style="display: block;">
-											<div class="form-group">
-												<input type="text" name="username" id="username" tabindex="1" class="form-control" placeholder="Email" value="">
-											</div>
-											<div class="form-group">
-												<input type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="Password">
-											</div>
-											<div class="form-group text-center">
-												<input type="checkbox" tabindex="3" class="" name="remember" id="remember">
-												<label for="remember"> Remember Me</label>
-											</div>
-											<div class="form-group">
-												<div class="row">
-													<div class="col-sm-6 col-sm-offset-3">
-														<input type="submit" name="login-submit" id="login-submit" tabindex="4" class="btn btn-success btn-block btn-md" value="Log In">
-													</div>
-												</div>
-											</div>
-											<div class="form-group">
-												<div class="row">
-													<div class="col-lg-12">
-														<div class="text-center">
-															<a href="http://phpoll.com/recover" tabindex="5" class="forgot-password">Forgot Password?</a>
-														</div>
-													</div>
-												</div>
-											</div>
-										</form>
-									</div>
-								</div>
-								<p class="text-center"><small>Not a member? <%= link_to "Sign up", signup_path %>.</small></p>
-							</div>
-						</div>
-					</div>
+				  <div class="col-md-6 col-md-offset-3">
+				    <%= form_for(:session, url: login_path) do |f| %>
+						<div class="form-group">
+				    		<%= f.label :email %>
+				    		<%= f.email_field :email, class: 'form-control', placeholder: "Email" %>
+				    	</div>
+					
+						<div class="form-group">
+				    		<%= f.label :password %>
+				    		<%= f.password_field :password, class: 'form-control', placeholder: "Password" %>
+				    	</div>
+
+				        <div class="form-group">
+				            <%= f.check_box :remember_me %>
+				            <span>Remember me on this computer</span>
+				        </div>
+						
+						<div class="form-group">
+				    		<%= f.submit "Log in", class: "btn btn-primary" %>
+				    	</div>
+				    <% end %>
+
+				    <p>New user? <%= link_to "Sign up now!", root_path %></p>
+				  </div>
 				</div>
 			</div>
 		</div><!-- /.modal-content -->
@@ -125,9 +119,9 @@
 				<h4 class="modal-title" id="myModalLabel">Terms &amp; Conditions</h4>
 			</div>
 			<div class="modal-body">
-				<p>Welcome to our website. If you continue to browse and use this website, you are agreeing to comply with and be bound by the following terms and conditions of use, which together with our privacy policy govern [business name]'s relationship with you in relation to this website. If you disagree with any part of these terms and conditions, please do not use our website.</p>
+				<p>Welcome to our website. If you continue to browse and use this website, you are agreeing to comply with and be bound by the following terms and conditions of use, which together with our privacy policy govern Twitta's relationship with you in relation to this website. If you disagree with any part of these terms and conditions, please do not use our website.</p>
 
-				<p>The term '[business name]' or 'us' or 'we' refers to the owner of the website whose registered office is [address]. Our company registration number is [company registration number and place of registration]. The term 'you' refers to the user or viewer of our website.</p>
+				<p>The term 'Twitta' or 'us' or 'we' refers to the owner of the website. Our company registration number is 0019389201. The term 'you' refers to the user or viewer of our website.</p>
 
 				<p>The use of this website is subject to the following terms of use:</p>
 
@@ -141,7 +135,7 @@
 				<p>This website contains material which is owned by or licensed to us. This material includes, but is not limited to, the design, layout, look, appearance and graphics. Reproduction is prohibited other than in accordance with the copyright notice, which forms part of these terms and conditions.</p>
 
 				<p>All trade marks reproduced in this website which are not the property of, or licensed to, the operator are acknowledged on the website.
-				Unauthorised use of this website may give rise to a claim for damages and/or be a criminal offence.</p>
+				Unauthorized use of this website may give rise to a claim for damages and/or be a criminal offence.</p>
 
 				<p>From time to time this website may also include links to other websites. These links are provided for your convenience to provide further information. They do not signify that we endorse the website(s). We have no responsibility for the content of the linked website(s).</p>
 				
