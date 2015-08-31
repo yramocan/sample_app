@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-  resources :users
-  
   root 'users#new'
   
   # Static Pages Routes
@@ -17,4 +15,7 @@ Rails.application.routes.draw do
   get    'login'   => 'sessions#new'
   post   'login'   => 'sessions#create'
   delete 'logout'  => 'sessions#destroy'
+
+  resources :users
+  resources :account_activations, only: [:edit]
 end
