@@ -34,15 +34,21 @@ html, html a
 	font-family: $open-sans
 	-webkit-font-smoothing: antialiased !important
 	text-shadow: 1px 1px 1px rgba(0,0,0,0.004) !important
-    
+
+body
+	background-image: url('concrete_seamless.png')
+
+.navbar
+	margin-bottom: 0 !important
+
 #logo
 	max-width: 40%
 	padding: 0
-	&:hover
-		max-width: 41%
 
 #main-container
-	margin-top: 6em
+	background-color: white
+	min-height: 800px
+	padding: 2em 5em
 
 /* typography */
 
@@ -70,13 +76,38 @@ p
 	margin-top: 2em
 
 #footer
-	padding: 0.3em
-	width: 100%
+	background-color: #101010
+	border-radius: 0px
+	padding: 1em
 	/* Set the fixed height of the footer here */
 	a
-		&:link, &:hover, &:active, &:visited
+		&:link, &:active, &:visited
 			color: $secondary-color
+			background-color: transparent
+
+		&:hover
+			color: white
+			text-decoration: underline
+			background-color: transparent
 
 	p
 		margin-top: 1em
 		font-size: 1em
+
+/* Modal */
+
+.modal
+	text-align: center
+
+@media screen and (min-width: 768px)
+	.modal:before
+		display: inline-block
+		vertical-align: middle
+		margin-top: -7em
+		content: " "
+		height: 100%
+
+.modal-dialog
+	display: inline-block
+	text-align: left
+	vertical-align: middle

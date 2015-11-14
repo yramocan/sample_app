@@ -1,15 +1,14 @@
-<footer class="navbar navbar-static-bottom" id="footer">
-  <div class="container">
-    <hr id="footer-separator">
-    <div class="navbar-left">
-      <p class="text-center" id="copyright"><%= link_to "Copyright © 2015 Yuri Ramocan", "http://yuriramocan.com/" %></p>
+<footer class="" id="footer">
+    <div class="container">
+      <div class="navbar-left">
+        <p class="text-center" id="copyright"><%= link_to "Copyright © 2015 Yuri Ramocan", "http://yuriramocan.com/" %></p>
+      </div>
+      <nav>
+        <ul class="nav navbar-nav navbar-right">
+          <li class="footer-link"><%= link_to "About", about_path %></li>
+          <li class="footer-link"><%= link_to "Contact", contact_path %></li>
+          <li class="footer-link"><%= link_to "News", news_path %></li>
+        </ul>
+      </nav>
     </div>
-    <nav>
-      <ul class="nav navbar-nav navbar-right">
-        <li class="footer-link"><%= link_to "About", about_path %></li>
-        <li class="footer-link"><%= link_to "Contact", contact_path %></li>
-        <li class="footer-link"><%= link_to "News", news_path %></li>
-      </ul>
-    </nav>
-  </div>
 </footer>

@@ -14,8 +14,8 @@ class UsersController < ApplicationController
 	def create
 		@user = User.new(user_params)
 		if @user.save
-			@user.senc_activation_email
-			flash[:info] = "Please check your email to activate your account."
+			@user.send_activation_email
+			flash[:warning] = "Please check your email to activate your account."
 			redirect_to root_url
 		else
 			render 'new'
@@ -31,10 +31,10 @@ class UsersController < ApplicationController
 	end
 
 	def update
-		@user = User.new(user_params)
+		@user = User.find(params[:id])
 		if @user.update_attributes(user_params)
 			log_in @user
-			flash[:success] = "Welcome to Twitta!"
+			flash[:success] = "Profile updated."
 			redirect_to @user
 		else
 			render 'edit'
