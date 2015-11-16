@@ -8,6 +8,10 @@ class UsersController < ApplicationController
 	end
 
 	def new
+		if logged_in?
+			@users = User.paginate(page: params[:page])
+			render 'index'
+		end
 		@user = User.new
 	end
 

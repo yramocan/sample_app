@@ -1,8 +1,8 @@
 <% provide(:title, "Community") %>
 <h1 class="text-center">Community</h1>
 
-<%= will_paginate %>
+<%= will_paginate @users %>
 <ul class="users">
    <%= render @users %>
 </ul>
-<%= will_paginate %>
+<%= will_paginate @users %>

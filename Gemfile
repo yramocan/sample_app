@@ -4,6 +4,10 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.3'
 
+# Use premailer for pre-processing emails
+gem 'premailer-rails'
+gem 'nokogiri'
+
 # Use bcrypt for secure password hash encryption
 gem 'bcrypt'
 
