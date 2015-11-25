@@ -19,6 +19,10 @@ textarea {
   margin-bottom: 10px;
 }
 
+.warning {
+  color: red;
+}
+
 $gray-medium-light: #eaeaea;
 
 @mixin box_sizing {
@@ -97,6 +101,127 @@ aside {
     overflow: auto;
     padding: 10px 0;
     border-bottom: 1px solid $gray-lighter;
+  }
+}
+
+/* microposts */
+
+.user_info {
+  padding: 20px;
+  background-color: white;
+  border: 1px solid #e8e8e8;
+  border-radius: 5px;
+  padding-top: 15px !important;
+}
+
+#feed-header {
+  margin-top: 15px;
+}
+
+.micropost-form {
+  margin-top: 20px;
+  background-color: white;
+  padding: 20px 20px 10px 20px;
+  border-top: 1px solid #e8e8e8;
+  border-left: 1px solid #e8e8e8;
+  border-right: 1px solid #e8e8e8;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.microposts {
+  list-style: none;
+  padding: 0;
+  li {
+    padding: 15px 20px 15px 20px;
+    background-color: white;
+    border-top: 1px solid #e8e8e8;
+    border-left: 1px solid #e8e8e8;
+    border-right: 1px solid #e8e8e8;
+    margin: 0px;
+  }
+  .user {
+    margin-top: 5em;
+    padding-top: 0;
+
+    a {
+      color: #101010;
+    }
+  }
+  .content {
+    display: block;
+    img {
+      display: block;
+      padding: 0px 0;
+      margin-left: 55px;
+    }
+    margin-bottom: 6px;
+  }
+  .timestamp {
+    color: $gray-light;
+  }
+  .gravatar {
+    margin-right: 10px;
+    max-width: 48px;
+    border-radius: 3px;
+    // margin-top: 5px;
+  }
+}
+
+.micropost-picture {
+  margin-top: 10px;
+  border-radius: 4px;
+}
+
+#micropost_picture {
+  display: inline;
+  margin-left: 15px;
+}
+
+#other-user-microposts {
+  margin-top: 15px;
+}
+
+aside {
+  textarea {
+    height: 100px;
+    margin-bottom: 5px;
+  }
+}
+
+span.picture {
+  margin-top: 10px;
+  input {
+    border: 0;
+  }
+}
+
+.options {
+  margin-left: 60px;
+}
+
+.options-icon {
+  margin-top: 20px;
+  margin-right: 25px;
+}
+
+.options-icon a {
+  color: grey;
+}
+
+#fav-tweet {
+  &:hover {
+    a {
+      color: #b20000;
+    }
+  }
+}
+
+#rt-tweet {
+  &:hover {
+    a {
+      color: #4ca64c;
+    }
   }
 }
 

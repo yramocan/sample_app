@@ -62,4 +62,36 @@ $(function () {
         }
         init();
     });
+
+    $('.submit-twit').click(function() {
+        var post = $('.status-box').val();
+        $('.counter').text('140').removeClass('warning');
+        $('.submit-twit').addClass('disabled');
+    });
+
+    $('.status-box').keyup(function() {
+        var postLength = $(this).val().length;
+        var charsLeft = 140 - postLength;
+        $('.counter').text(charsLeft);
+        
+        // Disables post button if message is empty
+        // or too many characters.
+        if (charsLeft < 0) {
+            $('.submit-twit').addClass('disabled');
+        } else if (charsLeft >= 140) {
+            $('.submit-twit').addClass('disabled');
+        } else {
+            $('.submit-twit').removeClass('disabled');
+        }
+        
+        // Turns counter color red if charsLeft <= 10
+        // using "warning" class. Otherwise, counter stays black.
+        if (charsLeft <= 10) {
+            $('.counter').addClass('warning');
+        } else {
+            $('.counter').removeClass('warning');
+        }
+    });
+    
+    $('.submit-twit').addClass('disabled');
 });

@@ -1,0 +1,43 @@
+<%= form_for(@user) do |f| %>
+	<h1>Sign Up <small>It's free and always will be.</small></h1>
+	<%= render 'shared/error_messages', object: f.object %>
+
+	<div class="form-group">
+		<%= f.label :name %>
+		<%= f.text_field :name, class: "form-control input-lg", placeholder: "Full Name", tabindex: "3" %>
+	</div>
+	
+	<div class="form-group">
+		<%= f.label :email %>
+		<%= f.email_field :email, class: "form-control input-lg", placeholder: "Email", tabindex: "4" %>
+	</div>
+
+	<div class="form-group">
+		<%= f.label :password %>
+		<%= f.password_field :password, class: "form-control input-lg", placeholder: "Password", tabindex: "5" %>
+	</div>
+
+	<div class="form-group">
+		<%= f.label :password_confirmation %>
+		<%= f.password_field :password_confirmation, class: "form-control input-lg", placeholder: "Confirm Password", tabindex: "6" %>
+	</div>
+	
+	<div class="row">
+		<div class="col-xs-10 col-sm-12 col-md-12">
+			By clicking 
+			<strong class="label label-primary">
+				Create my account
+			</strong>, you agree to the <%= link_to "Terms and Conditions", "#", {'data-toggle' => 'modal', 'data-target' => '#t_and_c_m'} %> set out by this site, including our Cookie Use. 
+		</div>
+	</div>
+	
+	<hr class="colorgraph">
+
+	<div class="form-group">
+		<%= f.submit "Create my account", class: "btn btn-primary btn-block btn-lg" %>
+	</div>
+
+	<div class="form-group">
+		<p>Already a member? <%= link_to "Sign in!", '#', {'data-toggle' => 'modal', 'data-target' => '#login_modal'} %></p>
+	</div>
+<% end %>

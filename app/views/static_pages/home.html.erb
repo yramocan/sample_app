@@ -1,0 +1,125 @@
+<% if logged_in? %>
+	<% provide(:title, "Home") %>
+	<div class="row">
+		<aside class="col-md-3">
+			<section class="user_info">
+				<%= render 'shared/user_info' %>
+			</section>
+		</aside>
+		<div class="col-md-6">
+			<section class="micropost-form">
+				<%= render 'shared/micropost_form' %>
+			</section>
+			<section class="micropost-feed">
+				<%= render 'shared/feed' %>
+			</section>
+		</div>
+	</div>
+<% else %>
+	<% provide(:title, "Sign Up") %>
+	<div class="row">
+		<div class="col-md-6">
+			<h1>Connect with friends and the world around you on Twitta.</h1>
+
+			<div class="row">
+				<div class="col-md-1">
+					<h2 class="feature"><i class="fa fa-newspaper-o"></i></h3>
+					<h2 class="feature"><i class="fa fa-bullhorn"></i></h3>
+					<h2 class="feature"><i class="fa fa-share-alt"></i></h3>
+				</div>
+				<div class="col-md-11">
+					<h2 class="feature">See photos and updates <small>from your friends.</small></h3>
+					<h2 class="feature">Share what's new <small>in your life on your feed.</small></h3>
+					<h2 class="feature">Find more <small>details with Dynamic Search.</small></h3>
+				</div>
+			</div>
+		</div>
+
+		<div class="col-md-6">
+			<div class="row">
+			    <%= render 'shared/user_info_form' %>
+			</div>
+		</div>
+	</div>
+
+	<!-- Log In Modal -->
+	<div class="modal fade" id="login_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog modal-md">
+			<div class="modal-content">
+
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+					<h4 class="modal-title text-center" id="login-header">Sign in</h4>
+				</div>
+
+				<div class="modal-body">
+					<div class="row">
+					  <div class="col-sm-8 col-sm-offset-2">
+					    <%= form_for(:session, url: login_path) do |f| %>
+							<div class="form-group">
+					    		<%= f.label :email %>
+					    		<%= f.email_field :email, class: 'form-control', placeholder: "Email" %>
+					    	</div>
+						
+							<div class="form-group">
+					    		<%= f.label :password %>
+					    		<span class=""><small>(<%= link_to "Forgot your password?", new_password_reset_path %></small>)</span>
+					    		<%= f.password_field :password, class: 'form-control', placeholder: "Password" %>
+					    	</div>
+
+					        <div class="form-group">
+					            <%= f.check_box :remember_me %>
+					            <span>Remember me on this computer</span>
+					        </div>
+							
+							<div class="form-group">
+					    		<%= f.submit "Sign in", class: "btn btn-block btn-primary" %>
+					    	</div>
+					    <% end %>
+
+					    <p class="pull-left"><small>New user? <%= link_to "Sign up now!", root_path %></small></p>
+					  </div>
+					</div>
+				</div>
+			</div><!-- /.modal-content -->
+		</div><!-- /.modal-dialog -->
+	</div><!-- end log in modal -->
+
+	<!-- Terms and Conditions Modal -->
+	<div class="modal fade" id="t_and_c_m" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog modal-lg">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+					<h4 class="modal-title" id="myModalLabel">Terms &amp; Conditions</h4>
+				</div>
+				<div class="modal-body">
+					<p>Welcome to our website. If you continue to browse and use this website, you are agreeing to comply with and be bound by the following terms and conditions of use, which together with our privacy policy govern Twitta's relationship with you in relation to this website. If you disagree with any part of these terms and conditions, please do not use our website.</p>
+
+					<p>The term 'Twitta' or 'us' or 'we' refers to the owner of the website. Our company registration number is 0019389201. The term 'you' refers to the user or viewer of our website.</p>
+
+					<p>The use of this website is subject to the following terms of use:</p>
+
+					<p>The content of the pages of this website is for your general information and use only. It is subject to change without notice.
+					This website uses cookies to monitor browsing preferences. If you do allow cookies to be used, the following personal information may be stored by us for use by third parties: [insert list of information].</p>
+
+					<p>Neither we nor any third parties provide any warranty or guarantee as to the accuracy, timeliness, performance, completeness or suitability of the information and materials found or offered on this website for any particular purpose. You acknowledge that such information and materials may contain inaccuracies or errors and we expressly exclude liability for any such inaccuracies or errors to the fullest extent permitted by law.</p>
+
+					<p>Your use of any information or materials on this website is entirely at your own risk, for which we shall not be liable. It shall be your own responsibility to ensure that any products, services or information available through this website meet your specific requirements.</p>
+					
+					<p>This website contains material which is owned by or licensed to us. This material includes, but is not limited to, the design, layout, look, appearance and graphics. Reproduction is prohibited other than in accordance with the copyright notice, which forms part of these terms and conditions.</p>
+
+					<p>All trade marks reproduced in this website which are not the property of, or licensed to, the operator are acknowledged on the website.
+					Unauthorized use of this website may give rise to a claim for damages and/or be a criminal offence.</p>
+
+					<p>From time to time this website may also include links to other websites. These links are provided for your convenience to provide further information. They do not signify that we endorse the website(s). We have no responsibility for the content of the linked website(s).</p>
+					
+					<p>Your use of this website and any dispute arising out of such use of the website is subject to the laws of the United States.</p>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-primary" data-dismiss="modal">Agree</button>
+				</div>
+			</div><!-- /.modal-content -->
+		</div><!-- /.modal-dialog -->
+	</div><!-- /.modal -->
+<% end %>
