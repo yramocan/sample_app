@@ -168,6 +168,15 @@ aside {
   }
 }
 
+#show-feed {
+  margin-top: 20px;
+  
+  li:first-of-type {
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+  }
+}
+
 .micropost-picture {
   margin-top: 10px;
   border-radius: 4px;

@@ -13,8 +13,13 @@
 <body>
   
   <%= render 'layouts/navbar' %>
+  
+  <% if (current_page?(root_path) && logged_in?) || params[:action] == "show" %>
+    <div class="container">
+  <% else %>
+    <div class="container" id="main-container">
+  <% end %>
 
-  <div class="container">
     <% flash.each do |message_type, message| %>
       <div class="alert alert-<%= message_type %>"><%= message %></div>
     <% end %>
