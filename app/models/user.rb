@@ -11,6 +11,10 @@ class User < ActiveRecord::Base
 	has_many :following, through: :active_relationships, source: :followed
 	has_many :followers, through: :passive_relationships, source: :follower
 
+	# Favorite microposts of user
+  has_many :favorite_microposts # just the 'relationships'
+  has_many :favorites, through: :favorite_microposts, source: :micropost # the actual microposts a user favorites
+
 	attr_accessor :remember_token, :activation_token, :reset_token
   before_save   :downcase_email
 	before_save		:downcase_username
@@ -111,6 +115,11 @@ class User < ActiveRecord::Base
   # Returns true if the current user is following the other user.
   def following?(other_user)
     following.include?(other_user)
+  end
+
+	# Returns true if the Micropost is in the current_user's favorites.
+  def favorited?(micropost)
+    favorites.include?(micropost)
   end
 
 	# def to_param

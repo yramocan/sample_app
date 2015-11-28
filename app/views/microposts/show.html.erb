@@ -1,0 +1,51 @@
+<div class="col-md-8 col-md-offset-2">
+  <div class="micropost row">
+        <div class="row">
+            <%= link_to gravatar_for(@micropost.user), @micropost.user %>
+            <span class="user">
+              <h4 class="poster-name"><strong><%= link_to @micropost.user.name, @micropost.user %></strong></h4>
+                  <span id="username">
+                    @<%= @micropost.user.username %>
+                  </span>
+              <span class="timestamp">
+                    <small> &middot; <%= time_ago_in_words(@micropost.created_at) %> ago</small>
+              </span>
+            </span>
+        </div>
+
+        <div class="row">
+            <p class="content">
+              <%= @micropost.content %>
+              <%= image_tag @micropost.picture.url, class: 'micropost-picture' if @micropost.picture? %>
+            </p>
+
+            <div class="options" style="margin-top:10px;">
+              <span class="options-icon" id="reply-tweet">
+                <%= link_to @micropost do %>
+                  <%= content_tag(:i, "",:class=> 'fa fa-mail-reply') -%>
+                <% end %>
+              </span>
+
+              <span class="options-icon" id="fav-tweet">
+                <%= link_to @micropost do %>
+                  <%= content_tag(:i, "",:class=> 'fa fa-heart') -%>
+                <% end %>
+              </span>
+
+              <% if current_user?(@micropost.user) %>
+              <span class="options-icon">
+                <%= link_to @micropost, method: :delete, data: { confirm: "You sure?" } do %>
+                  <%= content_tag(:i, "",:class=> 'fa fa-trash') -%>
+                <% end %>
+              </span>
+              <% else %>
+              <span class="options-icon" id="rt-tweet">
+                <%= link_to @micropost do %>
+                  <%= content_tag(:i, "",:class=> 'fa fa-retweet') -%>
+                <% end %>
+              </span>
+              <% end %>
+            </div>
+        </div>
+  </div>
+</div>

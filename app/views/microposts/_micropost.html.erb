@@ -1,5 +1,5 @@
-<li id="micropost-<%= micropost.id %>">
-
+<%= link_to micropost do %>
+  <li id="micropost-<%= micropost.id %>">
   	<div class="row">
   	  <div class="col-md-1">
         <%= link_to gravatar_for(micropost.user), micropost.user %>
@@ -48,7 +48,7 @@
   	        </span>
   	        <% end %>
   	      </div>
-  	        </div>
+  	    </div>
   	  </div>
-
-</li>
+  </li>
+<% end %>

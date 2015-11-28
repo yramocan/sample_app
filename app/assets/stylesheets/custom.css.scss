@@ -171,6 +171,53 @@ aside {
   border-top-right-radius: 5px;
 }
 
+.micropost {
+  padding: 30px 50px;
+  background-color: white;
+  border: 1px solid #e8e8e8;
+  border-radius: 5px;
+  margin-top: 20px;
+
+  .user {
+    margin-top: 5em;
+    padding-top: 0;
+
+    .poster-name {
+      margin-bottom: 0px;
+    }
+
+    a {
+      color: #101010;
+    }
+  }
+  .content {
+    display: block;
+    font-size: 28px;
+    font-weight: 200;
+    word-wrap: break-word;
+    margin-bottom: 6px;
+
+    img {
+      display: block;
+      width: 100%;
+      padding: 0px 0;
+    }
+  }
+  .timestamp {
+    color: $gray-light;
+  }
+  .gravatar {
+    margin-right: 10px;
+    max-width: 50px;
+    border-radius: 3px;
+    // margin-top: 5px;
+  }
+
+  .options-icon {
+    font-size: 22px;
+  }
+}
+
 .microposts {
   list-style: none;
   padding: 0;
@@ -248,7 +295,7 @@ span.picture {
 }
 
 .options {
-
+  margin-top: 5px;
 }
 
 .options-icon {
@@ -258,6 +305,10 @@ span.picture {
 
 .options-icon a {
   color: grey;
+}
+
+.favorited {
+  color: #b20000;
 }
 
 #fav-tweet {

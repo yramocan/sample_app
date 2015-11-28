@@ -26,6 +26,10 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :microposts do
+    put :favorite, on: :member
+  end
+
   # match ":username", :to => "users#show", :as => :user, :via => :get
   # match ":username/edit", :to => "users#edit", :as => :edit_user, :via => :get
   # match ":username", :to => "users#update", :via => :patch
