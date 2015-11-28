@@ -3,18 +3,23 @@ class User < ActiveRecord::Base
 	has_many :active_relationships, class_name:  "Relationship",
                                   foreign_key: "follower_id",
                                   dependent:   :destroy
+
 	has_many :passive_relationships, class_name:  "Relationship",
 																  foreign_key: "followed_id",
 																  dependent:   :destroy
+
 	has_many :following, through: :active_relationships, source: :followed
 	has_many :followers, through: :passive_relationships, source: :follower
 
 	attr_accessor :remember_token, :activation_token, :reset_token
-  	before_save   :downcase_email
-  	before_create :create_activation_digest
+  before_save   :downcase_username, :downcase_email
+  before_create :create_activation_digest
 
 	# Name Validations
 	validates :name, presence: true, length: { maximum: 50 }
+
+	# Username Validations
+	validates :username, presence: true
 
 	# Email Validations
 	VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
@@ -107,10 +112,19 @@ class User < ActiveRecord::Base
     following.include?(other_user)
   end
 
+	def to_param
+  	username
+	end
+
 	private
 		# Converts email to all lower-case
 		def downcase_email
 			self.email = email.downcase
+		end
+
+		# Converts username to all lower-case
+		def downcase_username
+			self.username = username.downcase
 		end
 
 		# Creates and assigns the activation token and digest

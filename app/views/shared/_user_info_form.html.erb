@@ -6,31 +6,36 @@
 		<%= f.label :name %>
 		<%= f.text_field :name, class: "form-control input-lg", placeholder: "Full Name", tabindex: "3" %>
 	</div>
-	
+
+	<div class="form-group">
+		<%= f.label :username %>
+		<%= f.email_field :username, class: "form-control input-lg", placeholder: "Username", tabindex: "4" %>
+	</div>
+
 	<div class="form-group">
 		<%= f.label :email %>
-		<%= f.email_field :email, class: "form-control input-lg", placeholder: "Email", tabindex: "4" %>
+		<%= f.email_field :email, class: "form-control input-lg", placeholder: "Email", tabindex: "5" %>
 	</div>
 
 	<div class="form-group">
 		<%= f.label :password %>
-		<%= f.password_field :password, class: "form-control input-lg", placeholder: "Password", tabindex: "5" %>
+		<%= f.password_field :password, class: "form-control input-lg", placeholder: "Password", tabindex: "6" %>
 	</div>
 
 	<div class="form-group">
 		<%= f.label :password_confirmation %>
-		<%= f.password_field :password_confirmation, class: "form-control input-lg", placeholder: "Confirm Password", tabindex: "6" %>
+		<%= f.password_field :password_confirmation, class: "form-control input-lg", placeholder: "Confirm Password", tabindex: "7" %>
 	</div>
-	
+
 	<div class="row">
 		<div class="col-xs-10 col-sm-12 col-md-12">
-			By clicking 
+			By clicking
 			<strong class="label label-primary">
 				Create my account
-			</strong>, you agree to the <%= link_to "Terms and Conditions", "#", {'data-toggle' => 'modal', 'data-target' => '#t_and_c_m'} %> set out by this site, including our Cookie Use. 
+			</strong>, you agree to the <%= link_to "Terms and Conditions", "#", {'data-toggle' => 'modal', 'data-target' => '#t_and_c_m'} %> set out by this site, including our Cookie Use.
 		</div>
 	</div>
-	
+
 	<hr class="colorgraph">
 
 	<div class="form-group">

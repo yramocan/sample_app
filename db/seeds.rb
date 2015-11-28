@@ -1,4 +1,5 @@
 User.create!(name:  "Yuri Ramocan",
+             username: "yramocan",
              email: "yramocan@umich.edu",
              password:              "123123123",
              password_confirmation: "123123123",
@@ -8,9 +9,11 @@ User.create!(name:  "Yuri Ramocan",
 
 99.times do |n|
   name  = Faker::Name.name
+  username = Faker::Internet.user_name
   email = "example-#{n+1}@railstutorial.org"
   password = "password"
   User.create!(name:  name,
+               username: username,
                email: email,
                password:              password,
                password_confirmation: password,

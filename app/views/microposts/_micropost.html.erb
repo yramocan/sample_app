@@ -1,44 +1,54 @@
 <li id="micropost-<%= micropost.id %>">
 
-  	<%= link_to gravatar_for(micropost.user), micropost.user %>
+  	<div class="row">
+  	  <div class="col-md-1">
+        <%= link_to gravatar_for(micropost.user), micropost.user %>
+      </div>
 
-  	<span class="user">
-  		<strong><%= link_to micropost.user.name, micropost.user %></strong>
-  		<span class="timestamp">
-    		<small> &middot; <%= time_ago_in_words(micropost.created_at) %> ago</small>
-  		</span>
-  	</span>
+  	  <div class="col-md-offset-1 col-md-10">
+  	    <span class="user">
+  	      <strong><%= link_to micropost.user.name, micropost.user %></strong>
+  	          <span id="username">
+  	            <small>@<%= micropost.user.username %></small>
+  	          </span>
+  	      <span class="timestamp">
+  	            <small> &middot; <%= time_ago_in_words(micropost.created_at) %> ago</small>
+  	      </span>
+  	    </span>
 
-  	<span class="content">
-  		<%= micropost.content %>
-  		<%= image_tag micropost.picture.url, class: 'micropost-picture' if micropost.picture? %>
-  	</span>
+  	    <span class="content">
+  	      <%= micropost.content %>
+  	      <%= image_tag micropost.picture.url, class: 'micropost-picture' if micropost.picture? %>
+  	    </span>
 
-	<div class="options">
-		<span class="options-icon" id="reply-tweet">
-			<%= link_to micropost do %>
-				<%= content_tag(:i, "",:class=> 'fa fa-mail-reply') -%>
-			<% end %>
-		</span>
+  	      <div class="options">
+  	        <span class="options-icon" id="reply-tweet">
+  	          <%= link_to micropost do %>
+  	            <%= content_tag(:i, "",:class=> 'fa fa-mail-reply') -%>
+  	          <% end %>
+  	        </span>
 
-		<span class="options-icon" id="fav-tweet">
-			<%= link_to micropost do %>
-				<%= content_tag(:i, "",:class=> 'fa fa-heart') -%>
-			<% end %>
-		</span>
+  	        <span class="options-icon" id="fav-tweet">
+  	          <%= link_to micropost do %>
+  	            <%= content_tag(:i, "",:class=> 'fa fa-heart') -%>
+  	          <% end %>
+  	        </span>
 
-		<% if current_user?(micropost.user) %>
-		<span class="options-icon">
-			<%= link_to micropost, method: :delete, data: { confirm: "You sure?" } do %>
-				<%= content_tag(:i, "",:class=> 'fa fa-trash') -%>
-			<% end %>
-		</span>
-		<% else %>
-		<span class="options-icon" id="rt-tweet">
-			<%= link_to micropost do %>
-				<%= content_tag(:i, "",:class=> 'fa fa-retweet') -%>
-			<% end %>
-		</span>
-		<% end %>
-	</div>
+  	        <% if current_user?(micropost.user) %>
+  	        <span class="options-icon">
+  	          <%= link_to micropost, method: :delete, data: { confirm: "You sure?" } do %>
+  	            <%= content_tag(:i, "",:class=> 'fa fa-trash') -%>
+  	          <% end %>
+  	        </span>
+  	        <% else %>
+  	        <span class="options-icon" id="rt-tweet">
+  	          <%= link_to micropost do %>
+  	            <%= content_tag(:i, "",:class=> 'fa fa-retweet') -%>
+  	          <% end %>
+  	        </span>
+  	        <% end %>
+  	      </div>
+  	        </div>
+  	  </div>
+
 </li>
