@@ -13,4 +13,9 @@ class ApplicationController < ActionController::Base
           redirect_to login_url
         end
       end
+
+      # Disable SSL on Heroku
+      def expire_hsts
+        response.headers["Strict-Transport-Security"] = 'max-age=0'
+      end
 end

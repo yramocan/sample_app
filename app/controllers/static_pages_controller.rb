@@ -7,7 +7,7 @@ class StaticPagesController < ApplicationController
 			@user = User.new
 		end
 	end
-	
+
 	def help
 	end
 

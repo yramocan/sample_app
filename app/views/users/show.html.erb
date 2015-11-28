@@ -2,13 +2,15 @@
 <div class="row">
     <aside class="col-md-3">
       <section class="user_info">
-        <%= link_to gravatar_for(@user), @user %>
-        <h1><%= @user.name %></h1>
-        <span><%= pluralize(@user.microposts.count, "micropost") %></span>
+        <%= render 'shared/user_info' %>
+        <section class="stats">
+          <%= render 'shared/stats' %>
+        </section>
       </section>
     </aside>
     <div class="col-md-6">
       <section class="micropost-feed">
+        <%= render 'follow_form' if logged_in? %>
         <% if @feed_items.any? %>
           <ol class="microposts" id="show-feed">
             <%= render @feed_items %>
@@ -18,6 +20,6 @@
       </section>
     </div>
     <div class="col-md-3">
-      
+
     </div>
   </div>
