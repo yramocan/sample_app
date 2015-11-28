@@ -20,15 +20,19 @@ Rails.application.routes.draw do
   post   'login'   => 'sessions#create'
   delete 'logout'  => 'sessions#destroy'
 
-  resources :users, :only => [:index, :create, :new]
+  resources :users do
+    member do
+      get :following, :followers
+    end
+  end
 
-  match ":username", :to => "users#show", :as => :user, :via => :get
-  match ":username/edit", :to => "users#edit", :as => :edit_user, :via => :get
-  match ":username", :to => "users#update", :via => :patch
-
-  # Followers/Following Stats Routes
-  match ":username/following", :to => "users#following", :as => :following_user, :via => :get
-  match ":username/followers", :to => "users#followers", :as => :followers_user, :via => :get
+  # match ":username", :to => "users#show", :as => :user, :via => :get
+  # match ":username/edit", :to => "users#edit", :as => :edit_user, :via => :get
+  # match ":username", :to => "users#update", :via => :patch
+  #
+  # # Followers/Following Stats Routes
+  # match ":username/following", :to => "users#following", :as => :following_user, :via => :get
+  # match ":username/followers", :to => "users#followers", :as => :followers_user, :via => :get
 
   resources :account_activations, only: [:edit]
   resources :password_resets, only: [:new, :create, :edit, :update]

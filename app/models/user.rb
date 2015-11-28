@@ -112,9 +112,9 @@ class User < ActiveRecord::Base
     following.include?(other_user)
   end
 
-	def to_param
-  	username
-	end
+	# def to_param
+  # 	username
+	# end
 
 	private
 		# Converts email to all lower-case

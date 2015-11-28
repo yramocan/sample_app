@@ -25,17 +25,17 @@ class UsersController < ApplicationController
 	end
 
 	def show
-		@user = User.find_by_username(params[:username])
+		@user = User.find_by(params[:id])
 		@microposts = @user.microposts.paginate(page: params[:page])
 		@feed_items = @user.feed.paginate(page: params[:page])
 	end
 
 	def edit
-		@user = User.find_by_username(params[:username])
+		@user = User.find_by(params[:id])
 	end
 
 	def update
-		@user = User.find_by_username(params[:username])
+		@user = User.find_by(params[:id])
 		if @user.update_attributes(user_params)
 			log_in @user
 			flash[:success] = "Profile updated."
@@ -46,21 +46,21 @@ class UsersController < ApplicationController
 	end
 
 	def destroy
-		@user = User.find_by_username(params[:id]).destroy
+		@user = User.find_by(params[:id]).destroy
 		flash[:success] = "User deleted"
 		redirect_to users_url
 	end
 
 	def following
     @title = "Following"
-    @user = User.find_by_username(params[:username])
+    @user = User.find_by(params[:id])
     @users = @user.following.paginate(page: params[:page])
     render 'show_follow'
   end
 
   def followers
     @title = "Followers"
-    @user = User.find_by_username(params[:username])
+    @user = User.find_by(params[:id])
     @users = @user.followers.paginate(page: params[:page])
     render 'show_follow'
   end
@@ -71,7 +71,7 @@ class UsersController < ApplicationController
     end
 
     def correct_user
-			@user = User.find_by_username(params[:username])
+			@user = User.find_by(params[:id])
 			redirect_to(root_url) unless current_user?(@user)
 		end
 
