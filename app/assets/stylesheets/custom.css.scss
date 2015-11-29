@@ -219,6 +219,14 @@ aside {
   }
 }
 
+.unfollow, .follow-wrapper:hover .following {
+    display: none;
+}
+
+.follow-wrapper:hover .unfollow {
+    display: inline;
+}
+
 .microposts {
   list-style: none;
   padding: 0;

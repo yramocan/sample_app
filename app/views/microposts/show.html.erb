@@ -11,6 +11,10 @@
                     <small> &middot; <%= time_ago_in_words(@micropost.created_at) %> ago</small>
               </span>
             </span>
+
+            <div class="pull-right">
+              <%= render 'users/follow_form' if logged_in? %>
+            </div>
         </div>
 
         <div class="row">

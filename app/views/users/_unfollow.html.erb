@@ -1,5 +1,16 @@
-<%= form_for(current_user.active_relationships.find_by(followed_id: @user.id),
-             html: { method: :delete },
-             remote: true) do |f| %>
-  <%= f.submit "Unfollow", class: "btn btn-block" %>
-<% end %>
+<div class="follow-wrapper">
+  <div class="following">
+    <%= form_for(current_user.active_relationships.find_by(followed_id: @user.id),
+                 html: { method: :delete },
+                 remote: true) do |f| %>
+      <%= f.submit "Following", class: "btn btn-block btn-info" %>
+    <% end %>
+  </div>
+  <div class="unfollow">
+    <%= form_for(current_user.active_relationships.find_by(followed_id: @user.id),
+                 html: { method: :delete },
+                 remote: true) do |f| %>
+      <%= f.submit "Unfollow", class: "btn btn-block btn-danger" %>
+    <% end %>
+  </div>
+</div>
