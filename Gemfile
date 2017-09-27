@@ -38,7 +38,7 @@ gem 'bootstrap-sass', '~> 3.3.5.1'
 gem 'font-awesome-sass', '4.3.0'
 
 # Use Autoprefixer to automatically prefix CSS rules
-gem 'autoprefixer-rails', '~> 5.2.1.3'
+gem 'autoprefixer-rails', '~> 6.4.0'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
