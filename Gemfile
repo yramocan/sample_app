@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.2.3'
+gem 'rails', '4.2.4'
 
 gem 'carrierwave',             '0.10.0'
 gem 'mini_magick',             '3.8.0'
@@ -23,7 +23,7 @@ gem 'will_paginate', '3.0.7'
 gem 'bootstrap-will_paginate', '0.0.10'
 
 # Use SCSS for stylesheets
-gem 'sass-rails', '~> 5.0'
+gem 'sass-rails', '~> 5.0.4'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
@@ -38,7 +38,7 @@ gem 'bootstrap-sass', '~> 3.3.5.1'
 gem 'font-awesome-sass', '4.3.0'
 
 # Use Autoprefixer to automatically prefix CSS rules
-gem 'autoprefixer-rails', '~> 5.2.1.1'
+gem 'autoprefixer-rails', '~> 5.2.1.3'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
