@@ -38,6 +38,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'minitest'
 # Use rails-controller-testing to include helper test methods removed in Rails 5
 gem 'rails-controller-testing'
+gem 'listen', '~> 3.1', '>= 3.1.5'
 
 
 group :test do

@@ -28,8 +28,6 @@ module SampleApp
 
     # Include the authenticity token in remote forms.
     config.action_view.embed_authenticity_token_in_remote_forms = true
-
-    # Opt in to new callback behavior for Rails 5
-    ActiveSupport.halt_callback_chains_on_return_false = false
+    
   end
 end
