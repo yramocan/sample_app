@@ -6,7 +6,7 @@ class MicropostTest < ActiveSupport::TestCase
   # end
 
 	def setup
-		@user = User.find(1)
+		@user = User.first
 		# This code is not idiomatically correct.
 		@micropost = @user.microposts.build(content: "Lorem ipsum", user_id: @user.id)
 	end
